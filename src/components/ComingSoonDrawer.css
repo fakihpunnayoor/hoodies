@@ -1,0 +1,118 @@
+.cs-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(15, 15, 15, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.cs-drawer {
+  position: relative;
+  width: min(440px, 100%);
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  padding: 48px 40px;
+  background: var(--surface);
+  color: var(--text-dark);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.25);
+}
+
+.cs-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(28, 28, 28, 0.07);
+  color: var(--text-dark);
+  opacity: 0.7;
+  transition: opacity 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.cs-close:hover {
+  opacity: 1;
+  background: rgba(28, 28, 28, 0.14);
+  transform: rotate(90deg);
+}
+
+.cs-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.cs-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.cs-title {
+  font-family: 'Archivo Black', var(--font-body);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 8vw, 3.4rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.cs-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  opacity: 0.75;
+  margin-bottom: 14px;
+}
+
+.cs-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 26px;
+  border-radius: 999px;
+  background: #1c1c1c;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.cs-whatsapp:hover {
+  transform: translateY(-3px);
+  background: #25d366;
+  box-shadow: var(--shadow-lift);
+}
+
+@media (max-width: 600px) {
+  .cs-overlay {
+    align-items: flex-end;
+  }
+
+  .cs-drawer {
+    width: 100%;
+    height: auto;
+    padding: 64px 28px calc(40px + env(safe-area-inset-bottom, 0px));
+    border-radius: 28px 28px 0 0;
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.25);
+  }
+
+  .cs-close {
+    top: 14px;
+    right: 14px;
+  }
+
+  .cs-whatsapp {
+    width: 100%;
+    justify-content: center;
+  }
+}

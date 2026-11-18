@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { hoodies } from '../data/hoodies'
+import ComingSoonDrawer from './ComingSoonDrawer'
 import './HoodieHero.css'
 
 const BG_TRANSITION = { duration: 0.7, ease: 'easeInOut' }
@@ -45,6 +46,7 @@ const FLY_VARIANTS = {
 
 const HoodieHero = () => {
   const [index, setIndex] = useState(0)
+  const [comingSoonOpen, setComingSoonOpen] = useState(false)
   const len = hoodies.length
   const current = hoodies[index]
 
@@ -58,8 +60,10 @@ const HoodieHero = () => {
       transition={BG_TRANSITION}
     >
       <div className="hoodie-top">
-        <div className="hoodie-logo">LOOM</div>
-        <button className="hoodie-cta">Shop Now</button>
+        <img src="/images/logo.png" alt="Logo" className="hoodie-logo" />
+        <button className="hoodie-cta" onClick={() => setComingSoonOpen(true)}>
+          Shop Now
+        </button>
       </div>
 
       <div className="hoodie-giant-name" aria-hidden="true">
@@ -148,6 +152,8 @@ const HoodieHero = () => {
           fill="var(--surface)"
         />
       </svg>
+
+      <ComingSoonDrawer open={comingSoonOpen} onClose={() => setComingSoonOpen(false)} />
     </motion.section>
   )
 }

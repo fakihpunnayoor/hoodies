@@ -17,11 +17,8 @@
 }
 
 .hoodie-logo {
-  font-family: 'Archivo Black', var(--font-body);
-  font-size: 1.2rem;
-  letter-spacing: 0.03em;
-  color: #fff;
-  text-transform: uppercase;
+  height: 56px;
+  width: auto;
 }
 
 .hoodie-cta {
